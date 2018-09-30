@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1><%=t '.title', :default => 'Profile' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Image View</th>
+      <th>Created by</th>
+    </tr>
+  </thead>
+  <tbody>
+      <dl class="dl-horizontal">
+        <% current_user.albums.each do |album| %>
+            <% album.images.each do |image| %>
+              <tr>
+                <td><%= image_tag image.image.url(:thumb) %></td>
+                <td><%= image.owner %></br></td>
+              </tr>
+            <% end %>
+        <% end %>
+      </dl>
+  </tbody>
+</table>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>

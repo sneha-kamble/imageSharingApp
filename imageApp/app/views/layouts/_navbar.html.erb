@@ -1,0 +1,15 @@
+<div class="navbar">
+  <% if user_signed_in? %>
+    <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+      <i class="fa fa-bars"></i>
+    </a>
+  <% end %>
+
+  <!-- nabar right -->
+  <% if user_signed_in? %>
+    <ul class="nav navbar-nav pull-right">
+      <li><%= link_to 'User Profile', users_profile_path %></li>      
+      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+    </ul>
+  <% end %>
+</div>

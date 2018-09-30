@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1><%=t '.title', :default => 'Home' %></h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Image View</th>
+      <th>Created by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <dl class="dl-horizontal">
+        <% @images.each do |image| %>
+            <td><%= image_tag image.image.url(:thumb) %></td>
+            <td><%= image.owner %></td>
+          </tr>
+        <% end %>
+      </dl>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to t('Add Album +'),
+            new_album_path,
+            :class => 'btn btn-primary' %>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn btn-default'  %>
